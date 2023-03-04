@@ -1,51 +1,45 @@
-# 🐍 Python TDD Boilerplate
+# Mars Rover
 
-## 🧑‍🏭 Setup
+This is the first exercise and it’s the only one that will not be done from scratch. The goal of this exercise is to face legacy code that we must test before we start working on it.
 
-> [Pyenv](https://www.wolfremium.dev/blog/python-multiple-versions) >
-> [Makefile](https://hernandis.me/2017/03/20/como-hacer-un-makefile.html)
+- **Estimated time:** 1 hour
+- **Format:** Individual
 
-After `pyenv` installation, run this in this directory:
+During this process we will work on the basics of testing: Naming, Scope, Coherence, Modularisation, Testing flow (before, after, setup), Testing blocks (Given, When, Then)
 
-```bash
-pyenv install 3.10.9
+## Development
+
+Follow these [setup steps](docs/boilerplate-setup.md).
+
+## The Problem
+
+A squad of robotic rovers are to be landed by NASA on a plateau on Mars. This plateau, which is curiously rectangular, must be navigated by the rovers so that their on-board cameras can get a complete view of the surrounding terrain to send back to Earth.
+
+A rover's position and location is represented by a combination of x and y co-ordinates and a letter representing one of the four cardinal compass points. The plateau is divided up into a grid to simplify navigation. An example position might be 0, 0, N, which means the rover is in the bottom left corner and facing North.
+
+In order to control a rover, NASA sends a simple string of letters. The possible letters are 'L', 'R' and 'M'. 'L' and 'R' makes the rover spin 90 degrees left or right respectively, without moving from its current spot. 'M' means move forward one grid point, and maintain the same heading.
+
+Assume that the square directly North from (x, y) is (x, y+1).
+
+The first line of input is the upper-right coordinates of the plateau, the lower-left coordinates are assumed to be 0,0. The rest of the input is information pertaining to the rovers that have been deployed. Each rover has two lines of input. The first line gives the rover's position, and the second line is a series of instructions telling the rover how to explore the plateau.
+
+The position is made up of two integers and a letter separated by spaces, corresponding to the x and y coordinates and the rover's orientation.
+
+Each rover will be finished sequentially, which means that the second rover won't start to move until the first one has finished moving.
+
+The output for each rover should be its final coordinates and heading.
+
+## Input
+```
+5 5
+1 2 N
+LMLMLMLMM
+3 3 E
+MMRMMRMRRM
 ```
 
-Set default Python version for current directory:
-
-```bash
-pyenv local 3.10.9
+## Output
 ```
-
-Basic setup to use pipenv.
-
-```bash
-python -m pip install -U pip && pip install pipenv
+1 3 N
+5 1 E
 ```
-
-This project includes make commands to make your life easier.
-
-```bash
-sudo apt-get install make
-```
-
-Install all the dependencies, and generates a virtual environment.
-
-```bash
-make setup
-```
-
-## 🧑‍💻 Commands
-
-Run `make help` to see all available commands.
-
-## 📚 Testing libraries
-
-- [UnitTest](https://docs.python.org/3/library/unittest.html)
-- [Pytest](https://docs.pytest.org/en/7.1.x/getting-started.html#get-started)
-- [Hypothesis](https://hypothesis.readthedocs.io/en/latest/quickstart.html)
-- [Intro to property-based testing in Python](https://www.freecodecamp.org/news/intro-to-property-based-testing-in-python-6321e0c2f8b/)
-
-## 💩 Troubleshooting
-
-- [Select VSCode Interpreter (modules not found after installation)](https://code.visualstudio.com/docs/python/environments#_select-and-activate-an-environment)
